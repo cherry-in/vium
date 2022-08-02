@@ -3,13 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import './scss/custom.scss';
 import 'bootstrap';
 import { BrowserRouter as Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <div className="app">
+    <div className="app container">
+      <button className="btn btn-primary">안녕</button>
       <Router>
         <App />
       </Router>
