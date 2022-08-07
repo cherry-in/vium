@@ -10,8 +10,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <div className="app container">
-      <button className="btn btn-primary">안녕</button>
+    <div className="app container py-5 bg-info">
       <Router>
         <App />
       </Router>

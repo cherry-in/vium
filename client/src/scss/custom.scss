@@ -1,5 +1,6 @@
-$primary: #6FCBFE;
-$secondary: #F1D8BA;
+$primary: #6B9BEA;
+// $primary: #CCDFFF;
+$secondary: #F2D16A;
 $info: #DBEBF8;
 $warning: #F2B705;
 $GrayishSkyBlue: #739DB6;
@@ -11,6 +12,9 @@ $LightGray: #e0e0e0;
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
+body {
+    margin: 0 auto;
+}
 
 $custom-colors: (
     "GrayishSkyBlue": $GrayishSkyBlue,
