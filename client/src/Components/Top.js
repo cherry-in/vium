@@ -4,11 +4,12 @@ import InputLocation from "./InputLocation";
 
 const Top = () => {
   return (
-    <div className="row">
-      <div className="col">
+    <div className="d-flex justify-content-between">
+      <div></div>
+      <div className="">
         <InputLocation />
       </div>
-      <div className="col">
+      <div className="">
         <Cart />
       </div>
     </div>

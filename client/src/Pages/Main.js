@@ -7,12 +7,14 @@ import Top from "../Components/Top";
 
 const Main = () => {
   return (
-    <div>
+    <div className="d-flex flex-column h-100">
       <Top />
       <Calories />
       <Banner />
       <FoodCategory />
-      <Footer />
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </div>
   );
 };
