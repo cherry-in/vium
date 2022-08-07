@@ -1,9 +1,9 @@
 import React from "react";
-import Banner from "../Components/Banner";
+import Banner from "../Components/Main/Banner";
 import Calories from "../Components/Calories";
-import FoodCategory from "../Components/FoodCategory";
+import FoodCategory from "../Components/Main/FoodCategory";
 import Footer from "../Components/Footer";
-import Top from "../Components/Top";
+import Top from "../Components/Main/Top";
 
 const Main = () => {
   return (
