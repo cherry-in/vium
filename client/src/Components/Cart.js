@@ -3,6 +3,7 @@ import React from "react";
 const Cart = () => {
   return (
     <div>
+      <a href="/">
       <svg
         width="50"
         height="50"
@@ -16,6 +17,7 @@ const Cart = () => {
           fill="white"
         />
       </svg>
+      </a>
     </div>
   );
 };
