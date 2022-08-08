@@ -1,0 +1,65 @@
+from pyexpat import model
+
+from django.contrib.postgres.fields import ArrayField
+from django.db import models
+
+# Create your models here.
+
+class Category(model.TextChoices):
+    ONE = '1인분'
+    JAPANESE = '일식'
+    CHINESE = '중식'
+    CHICKEN = '치킨'
+    KOREAN = '한식'
+    CAFE = '카페디저트'
+    SNACK = '분식'
+    PIZZA = '피자'
+    WESTERN = '양식'
+    MEAT = '고기구이'
+    ASIAN = '아시안'
+    FASTFOOD = '패스트푸드'
+    MIDNIGHT = '야식'
+    LUNCHBOX = '도시락'
+    VEGAN = '채식'
+
+class Restaurant(models.Model):
+    name = models.CharField(max_length=255)
+    payment_methods = ArrayField(models.CharField(max_length=255))
+    delivery_time = models.PositiveIntegerField()
+    delivery_charge = models.PositiveIntegerField()
+    min_order_price = models.PositiveIntegerField()
+    categories = ArrayField(models.CharField(max_length=20, choices=Category.choices))
+    lat = models.FloatField() #?
+    lng = models.FloatField() #?
+    reorder_count = models.PositiveIntegerField(default=0) #재주문횟수
+
+    image = models.ImageField(upload_to='restaurant_image', null=True, blank=True)
+    business_name = models.CharField(max_length=255)
+    company_registration_number = models.CharField(max_length=255)
+    open_time = models.TimeField()
+    close_time = models.TimeField()
+    tel_number = models.CharField(max_length=20)
+    address = models.CharField(max_length=255)
+    origin_information = models.TextField()
+    allergy_notification = models.TextField()
+
+    def __str__(self):
+        return f'({self.id}){self.name}'
+
+
+class MenuGroup(models.Model):
+    restaurant = models.ForeignKey('Restaurant', on_delete=models.CASCADE, related_name='menu_group')
+    name = models.CharField(max_length=255)
+
+
+def menu_img_path(instance, filename):
+    filename = filename.split('?')[0]
+    return f'menu_img/{filename}'
+
+
+class Menu(models.Model):
+    menu_group = models.ForeignKey('MenuGroup', on_delete=models.CASCADE, related_name='menu')
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='menu_image', null=True, blank=True, max_length=400)
+    caption = models.CharField(max_length=255)
+    price = models.PositiveIntegerField()
