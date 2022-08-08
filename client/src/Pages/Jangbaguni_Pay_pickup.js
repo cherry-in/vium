@@ -5,9 +5,15 @@ import Previous from '../Components/Previous'
 const Jangbaguni_Pay_pickup = () => {
   return (
     <div>
+      <div className='Previous'>
         <Previous />
+        </div>
+        <div className='Jangbaguni'>
         <h1>장바구니</h1>
-        <Cart /><br />
+        </div>
+        <div className='Cart'>
+        <Cart />
+        </div><br />
         <div className='total_payment'>
             <h2>이번 달 총 결제금액은</h2>
             <h2>118,500원 입니다</h2>
@@ -18,7 +24,9 @@ const Jangbaguni_Pay_pickup = () => {
             <p>옵션: 뼈</p>
             <h3>총 금액:19,000원</h3>
         </div><br />
+        <div className='Dopay'>
         <a href='/'>결제</a>
+        </div>
 
     </div>
   )
