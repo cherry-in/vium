@@ -1,32 +1,95 @@
-.ID {
-    position: absolute;
+/*.ID { 
+    position: static;
     width: 19px;
     height: 24px;
     left: 44px;
     top: 617px;
+
+
 
     font-family: 'Apple SD Gothic Neo';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    color: red
+    
+
+
+    color: #8D91B6;
+
+
+
 }
 
+.Password {
+    position: relative;
+
+
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+  
+
+
+    color: #8D91B6;
+}
+
+
 #input1 {
-    width: 300px;
-    height:50px;
-    background-color:tomato;
-    color:white;
+    position: relative;
+
+
+    background: #D8E0ED;
+    border-radius: 20px;
 }
 
 #input2 {
-    position: absolute;
-    width: 382px;
-    height: 44px;
-    left: 23px;
-    top: 607px;
+    position: relative;
 
-    background: green;
+
+    background: #D8E0ED;
     border-radius: 20px;
+}*/
+
+/* flex로 꾸며보자. 일단 박스 나누고 background 채워서 하는 식으로 알아가보기 */
+/* 그럼 id.css가 아니라 login.css로 해야할 듯 */
+
+.div{
+    height:24px;
 }
+
+.Id {
+    font-family: 'Apple SD Gothic Neo';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+width:19px;
+position: relative;
+text-align: center;
+
+background: #FFE699;
+border-radius: 20px;
+width:30px;
+
+
+
+
+color: #8D91B6;
+}
+
+#input1 {
+    background: #D8E0ED;
+border-radius: 20px;
+border-style: hidden;
+border: 0px solid gray;
+margin-left: 30px;
+height:24px;
+position:relative;
+top: -24px;
+width: 382px;
+text-align: center;
+}
+/* flex로 하기엔 요건이 안 맞는거 같아서 크롬 검사보면서 일일이 계산해서 함...ㅠ*/

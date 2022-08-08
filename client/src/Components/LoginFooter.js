@@ -1,4 +1,5 @@
 import React from 'react'
+import "./LoginFooter.css"
 
 function LoginFooter() {
   return (

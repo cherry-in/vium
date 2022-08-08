@@ -1,0 +1,20 @@
+.Done2{
+    margin:20px;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 50px;
+line-height: 61px;
+
+color: #6B9BEA;
+}
+
+.GotoLogin{
+    margin:100px;
+    padding:20px;
+    background: #F2D16A;
+border-radius: 20px;
+
+
+text-align: center;
+}

@@ -3,6 +3,7 @@ import React from "react";
 const Previous = () => {
   return (
     <div>
+      <a href="/">
       <svg
         width="50"
         height="50"
@@ -16,7 +17,9 @@ const Previous = () => {
           fill="white"
         />
       </svg>
+      </a>
     </div>
+    
   );
 };
 

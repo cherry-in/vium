@@ -1,0 +1,43 @@
+/* 비움 로고 위치 이동은 크롬 검사를 통해 viewbox 좌표 계산해서 위치시켜놓음. 이것도 한 방법이래 */
+
+.Login {
+    position: relative;
+    top: 12px;
+    background: #92B4EC;
+    border-radius: 20px;
+    width: 185px;
+
+    text-align: center;
+
+  
+    /* identical to box height */
+
+
+    
+}
+
+.Signup {
+    position: relative;
+    top: -12px;
+    margin-left: 220px;
+
+    background: #F2D16A;
+    border-radius: 20px;
+    width: 185px;
+
+    text-align: center;
+
+   
+    /* identical to box height */
+
+
+}
+
+a{
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+}

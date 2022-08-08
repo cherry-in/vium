@@ -1,0 +1,101 @@
+.Signup2 {
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 60px;
+    /* identical to box height */
+
+
+    color: #6B9BEA;
+
+    margin: 30px;
+
+
+}
+
+
+
+#text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+}
+
+#Common {
+    background: #C9D7ED;
+    border-radius: 20px;
+    position: relative;
+    top: 4px;
+    width: 382px;
+    height: 42px;
+
+}
+
+.Nickname {
+    margin: 10px;
+}
+
+.Id2 {
+    margin: 10px;
+}
+
+.Password2 {
+    margin: 10px;
+}
+
+.RePassword {
+    margin: 10px;
+}
+
+.Phonenumber {
+    margin: 10px;
+}
+
+#Common1 {
+    background: #C9D7ED;
+    border-radius: 20px;
+    position: relative;
+
+    width: 382px;
+    height: 42px;
+
+}
+
+#Common2 {
+    background: #C9D7ED;
+    border-radius: 20px;
+    position: relative;
+    top: 12px;
+    width: 382px;
+    height: 42px;
+}
+
+#Common3 {
+    background: #C9D7ED;
+    border-radius: 20px;
+    position: relative;
+    top: 12px;
+    width: 382px;
+    height: 42px;
+}
+
+#Common4 {
+    background: #C9D7ED;
+    border-radius: 20px;
+    position: relative;
+    top: 12px;
+    width: 382px;
+    height: 42px;
+}
+
+.Done {
+    margin: 100px;
+    background: #F2D16A;
+    border-radius: 20px;
+    text-align: center;
+}
