@@ -1,0 +1,72 @@
+.set{
+    display: block;
+    
+}
+
+.set1{
+    display: flex;
+    border: 1px solid black;
+    height:200px;
+}
+
+.set1 :nth-child(1){
+    position: relative;
+    top:5px;
+}
+
+.set1 :nth-child(2){
+    position: relative;
+    right:-200px;
+    top:-5px;
+}
+
+.set1 :nth-child(3){
+    position: relative;
+    right: -405px;
+    top:5px;
+}
+
+.set2{
+    border: 1px solid black;
+    height:70px;
+}
+
+.set2 :nth-child(2){
+    position: relative;
+    right:-550px;
+    top:-40px;
+
+}
+
+.set2 :nth-child(3){
+    position: relative;
+    right:-600px;
+    top:-68px;
+
+}
+
+.set3{
+    border:1px solid black;
+}
+
+.set3 :nth-child(1){
+    position: relative;
+    
+}
+
+.set3 :nth-child(2){
+    position: relative;
+    
+}
+
+.set4{
+    border: 1px solid black;
+}
+
+.set5{
+    border: 1px solid black;
+}
+
+.set6{
+    border: 1px solid black;
+}

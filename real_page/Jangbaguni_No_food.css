@@ -1,0 +1,31 @@
+.set{
+    display: block;
+    width:57%;
+}
+
+.set1{
+    display: flex;
+    border: 1px solid black;
+}
+
+.set1 :nth-child(1){
+    margin-top: 5px;
+}
+
+.set1 :nth-child(2){
+    position: relative;
+    right:-230px;
+    top:10px;
+}
+
+.set1 :nth-child(3){
+    position: relative;
+    right:-491px;
+    top:5px;
+}
+
+.set2{
+    border: 1px solid black;
+    margin-top: 150px;
+    text-align: center;
+}
