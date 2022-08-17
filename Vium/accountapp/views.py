@@ -8,7 +8,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
 
-from accountapp.serializers import AccountCreateSerializer
+from accountapp.forms import AccountCreateForm
 
 
 def main(request):
@@ -16,6 +16,6 @@ def main(request):
 
 class AccountCreateView(CreateView):
     model = User
-    form_class = AccountCreateSerializer
+    form_class = AccountCreateForm
     success_url = reverse_lazy('accountapp:login')
     # template_name = 'accountapp/create.html'

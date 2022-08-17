@@ -1,44 +1,44 @@
+from django.core.exceptions import ValidationError
 from django.db import models
-from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
+from django.forms import ModelForm
 
 from orderapp.models import Order, OrderMenu
 
 
-class OrderMenuNameField(serializers.Field):
+class OrderMenuNameField(ModelForm):
 
     def to_representation(self, value):
         names = [f'{order_menu.name} x {order_menu.count}' for order_menu in value.all()]
         return ', '.join(names)
 
 
-class OrderMenuSerializer(serializers.ModelSerializer):
+class OrderMenuForm(ModelForm):
 
     class Meta:
         model = OrderMenu
         fields = ('id', 'menu', 'name', 'price', 'count', 'order_option_group')
 
 
-class OrderSerializer(serializers.ModelSerializer):
-    order_menu = OrderMenuSerializer(many=True)
+class OrderForm(ModelForm):
+    order_menu = OrderMenuForm()
 
     class Meta:
         model = Order
         fields = ('id', 'order_menu', 'address', 'delivery_requests', 'payment_method', 'order_time')
 
 
-class OrderListSerializer(serializers.ModelSerializer):
+class OrderListForm(ModelForm):
     order_menu = OrderMenuNameField()
-    restaurant_name = serializers.CharField(source='restaurant.name')
-    restaurant_image = serializers.ImageField(source='restaurant.image')
+    restaurant_name = models.CharField(source='restaurant.name')
+    restaurant_image = models.ImageField(source='restaurant.image')
 
     class Meta:
         model = Order
         fields = ('id', 'order_menu', 'restaurant_name', 'restaurant_image', 'status', 'order_time')
 
 
-class OrderCreateSerializer(serializers.ModelSerializer):
-    order_menu = OrderMenuSerializer(many=True)
+class OrderCreateForm(ModelForm):
+    order_menu = OrderMenuForm()
 
     class Meta:
         model = Order
@@ -76,9 +76,6 @@ class OrderCreateSerializer(serializers.ModelSerializer):
             raise ValidationError('menu.price != model menu.price')
 
         menu_price = order_menu['price']
-
-        for order_option_group in order_menu['order_option_group']:
-            menu_price = self.valid_order_option_group(menu, order_option_group, menu_price)
 
         menu_price = menu_price * order_menu['count']
         self.total_price += menu_price

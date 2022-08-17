@@ -2,15 +2,16 @@ from rest_framework import mixins
 from rest_framework.viewsets import GenericViewSet
 
 from orderapp.models import Order
-from orderapp.serializers import OrderSerializer, OrderListSerializer, OrderCreateSerializer
+from orderapp.forms import OrderForm, OrderListForm, OrderCreateForm
 
+# 수정 필요...
 
 class OrderViewSet(mixins.CreateModelMixin,
                    mixins.ListModelMixin,
                    mixins.RetrieveModelMixin,
                    GenericViewSet):
     queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+    form_class = OrderForm
 
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
@@ -21,14 +22,14 @@ class OrderViewSet(mixins.CreateModelMixin,
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
 
-    def get_serializer_class(self):
+    def get_form_class(self):
         if self.action == 'create':
-            return OrderCreateSerializer
+            return OrderCreateForm
         if self.action == 'retrieve':
-            return OrderSerializer
+            return OrderForm
         if self.action == 'list':
-            return OrderListSerializer
-        return super().get_serializer_class()
+            return OrderListForm
+        return super().get_form_class()
 
     def get_queryset(self):
         qs = super().get_queryset()

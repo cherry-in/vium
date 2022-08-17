@@ -1,7 +1,8 @@
-from rest_framework import serializers
+from django.db import models
+from django.forms import ModelForm
 
 from orderapp.models import Order
-from restaurantapp.models import Menu, MenuGroup, Restaurant
+from restaurantapp.models import Menu, Restaurant
 
 
 def remaining_time(delivery_time, restaurant_id):
@@ -10,29 +11,20 @@ def remaining_time(delivery_time, restaurant_id):
     return f'{delivery_time}~{delivery_time + 10}분'
 
 
-class MenuDetailSerializer(serializers.ModelSerializer):
+class MenuDetailForm(ModelForm):
     class Meta:
         model = Menu
         fields = ('id', 'name', 'image', 'caption', 'price', 'option_group')
 
 
-class MenuListSerializer(serializers.ModelSerializer):
+class MenuListForm(ModelForm):
     class Meta:
         model = Menu
         fields = ('id', 'name', 'image', 'caption', 'menu_group_id', 'price')
 
 
-class MenuGroupSerializer(serializers.ModelSerializer):
-    menu = MenuListSerializer(read_only=True, many=True)
-
-    class Meta:
-        model = MenuGroup
-        fields = ('name', 'menu')
-
-
-class RestaurantDetailSerializer(serializers.ModelSerializer):
-    menu_group = MenuGroupSerializer(read_only=True, many=True)
-    delivery_time = serializers.SerializerMethodField()
+class RestaurantDetailForm(ModelForm):
+    delivery_time = models.CharField()
 
     def get_delivery_time(self, obj):
         return remaining_time(obj.delivery_time, obj.id)
@@ -45,9 +37,9 @@ class RestaurantDetailSerializer(serializers.ModelSerializer):
                   'menu_group', 'reorder_count')
 
 
-class RestaurantListSerializer(serializers.ModelSerializer):
-    delivery_time = serializers.SerializerMethodField()
-    reorder_count = serializers.IntegerField(source='reorder.count')
+class RestaurantListForm(ModelForm):
+    delivery_time = models.CharField()
+    reorder_count = models.IntegerField()
 
     def get_delivery_time(self, obj):
         return remaining_time(obj.delivery_time, obj.id)

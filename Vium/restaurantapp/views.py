@@ -7,13 +7,15 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet, ReadOnlyModelViewSet
 
+# 수정 필요...
+
 from restaurantapp.models import Menu, Restaurant
-from restaurantapp.serializers import RestaurantDetailSerializer, RestaurantListSerializer, MenuDetailSerializer
+from restaurantapp.forms import RestaurantDetailForm, RestaurantListForm, MenuDetailForm
 
 
 class MenuViewSet(mixins.RetrieveModelMixin, GenericViewSet):
     queryset = Menu.objects.all().prefetch_related('option_group_option')
-    serializer_class = MenuDetailSerializer
+    serializer_class = MenuDetailForm
     permission_classes = [AllowAny]
 
 class RestaurantFilter(filters.FilterSet):
@@ -27,7 +29,7 @@ class RestaurantFilter(filters.FilterSet):
 
 class RestaurantViewSet(ReadOnlyModelViewSet):
     queryset = Restaurant.objects.all()
-    serializer_class = RestaurantListSerializer
+    serializer_class = RestaurantListForm
     filter_backends = (filters.DjangoFilterBackend, OrderingFilter)
     filterset_class = RestaurantFilter
     ordering_fields = ['average_rating', 'delivery_charge', 'min_order_price', 'delivery_time', 'review_count',
@@ -44,7 +46,7 @@ class RestaurantViewSet(ReadOnlyModelViewSet):
 
     def get_serializer_class(self):
         if self.action == 'retrieve':
-            return RestaurantDetailSerializer
+            return RestaurantDetailForm
         return super().get_serializer_class()
 
     def get_queryset(self):
@@ -77,7 +79,6 @@ class RestaurantViewSet(ReadOnlyModelViewSet):
                 min_lon = lng - 0.015
                 max_lon = lng + 0.01
 
-                # 최소, 최대 위경도를 1km씩 설정해서 쿼리
                 qs = qs.filter(lat__gte=min_lat, lat__lte=max_lat,
                                lng__gte=min_lon, lng__lte=max_lon)
         return qs

@@ -1,11 +1,9 @@
-from pyexpat import model
-
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
 # Create your models here.
 
-class Category(model.TextChoices):
+class Category(models.TextChoices):
     ONE = '1인분'
     JAPANESE = '일식'
     CHINESE = '중식'
@@ -22,6 +20,7 @@ class Category(model.TextChoices):
     LUNCHBOX = '도시락'
     VEGAN = '채식'
 
+
 class Restaurant(models.Model):
     name = models.CharField(max_length=255)
     payment_methods = ArrayField(models.CharField(max_length=255))
@@ -29,8 +28,6 @@ class Restaurant(models.Model):
     delivery_charge = models.PositiveIntegerField()
     min_order_price = models.PositiveIntegerField()
     categories = ArrayField(models.CharField(max_length=20, choices=Category.choices))
-    lat = models.FloatField() #?
-    lng = models.FloatField() #?
     reorder_count = models.PositiveIntegerField(default=0) #재주문횟수
 
     image = models.ImageField(upload_to='restaurant_image', null=True, blank=True)
@@ -45,11 +42,6 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return f'({self.id}){self.name}'
-
-
-class MenuGroup(models.Model):
-    restaurant = models.ForeignKey('Restaurant', on_delete=models.CASCADE, related_name='menu_group')
-    name = models.CharField(max_length=255)
 
 
 def menu_img_path(instance, filename):
