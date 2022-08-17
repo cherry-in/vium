@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant_pickup_map</title>
+</head>
+
+<body>
+    <div class="set">
+        <div class="set1">
+            <div class="previous">
+                <a href="Sample.html"><svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect width="50" height="50" rx="15" fill="#FFE699" />
+                        <path
+                            d="M33.3334 11.0823L30.8055 8.16333L16.6667 24.4899L30.8055 40.8164L33.3334 37.8974L21.7224 24.4899L33.3334 11.0823Z"
+                            fill="black" />
+                    </svg></a>
+
+            </div>
+
+            <div class="location">
+                <a href="Sample.html"><svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect width="50" height="50" rx="15" fill="#FFE699" />
+                        <path
+                            d="M37.1909 23.6364C36.5636 17.95 32.05 13.4364 26.3636 12.8091V10H23.6364V12.8091C17.95 13.4364 13.4364 17.95 12.8091 23.6364H10V26.3636H12.8091C13.4364 32.05 17.95 36.5636 23.6364 37.1909V40H26.3636V37.1909C32.05 36.5636 36.5636 32.05 37.1909 26.3636H40V23.6364H37.1909ZM25 34.5455C19.7227 34.5455 15.4545 30.2773 15.4545 25C15.4545 19.7227 19.7227 15.4545 25 15.4545C30.2773 15.4545 34.5455 19.7227 34.5455 25C34.5455 30.2773 30.2773 34.5455 25 34.5455Z"
+                            fill="black" />
+                    </svg></a> ->이건 위치정보 공유...백엔드
+
+            </div>
+
+            <div class="set2">
+                <p>지도 화면</p>
+            </div>
+
+            <div class="set3">
+                <div class="information">
+                    <h3>우리동네 치킨</h3>
+                    <p>565m</p>
+                </div>
+
+                <div class="share">
+                    <a href="../Sample.html">
+                        <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18.75 17.6C17.8 17.6 16.95 17.975 16.3 18.5625L7.3875 13.375C7.45 13.0875 7.5 12.8 7.5 12.5C7.5 12.2 7.45 11.9125 7.3875 11.625L16.2 6.4875C16.875 7.1125 17.7625 7.5 18.75 7.5C20.825 7.5 22.5 5.825 22.5 3.75C22.5 1.675 20.825 0 18.75 0C16.675 0 15 1.675 15 3.75C15 4.05 15.05 4.3375 15.1125 4.625L6.3 9.7625C5.625 9.1375 4.7375 8.75 3.75 8.75C1.675 8.75 0 10.425 0 12.5C0 14.575 1.675 16.25 3.75 16.25C4.7375 16.25 5.625 15.8625 6.3 15.2375L15.2 20.4375C15.1375 20.7 15.1 20.975 15.1 21.25C15.1 23.2625 16.7375 24.9 18.75 24.9C20.7625 24.9 22.4 23.2625 22.4 21.25C22.4 19.2375 20.7625 17.6 18.75 17.6Z"
+                                fill="black" />
+                        </svg>
+
+                    </a>
+                </div>
+
+                <div class="like">
+                    
+                    
+                    <img src="../../images/like.PNG" id="img1" width="30" height="30"
+                       onclick="red_like(),alert('좋아요(빨강)/좋아요 취소(검정)')"> ->이거 alert 해결방법 뭐임..? if문 쓰면 될거 같은데 잘 안되네...</h4>
+                    
+                    
+                    <script>
+                        var count = 1;
+
+                        function red_like() {
+                            var img1 = document.getElementById("img1");
+
+                            if (count % 2 == 1) {
+
+                                img1.src = "../../images/red_like.PNG";
+                                
+
+                            }
+                            else {
+                                img1.src = "../../images/like.PNG";
+                                
+                            }
+
+
+                            count++;
+
+
+                        }
+
+                    </script>
+
+                    <p>음 휘수님..최대한 svg로 하고 싶었으나 따로 img따서 한점 양해부탁드립니다..</p>
+                    <p>svg는 img처럼 src로 설정하는 법을 몰라 img로 했습니다. svg를 img처럼 src 설정하는 법이 있으면, 쉽게 바꿀 수 있을 거 같습니다.</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+</body>
+
+</html>
