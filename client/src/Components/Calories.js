@@ -2,7 +2,7 @@ import React from "react";
 
 const Calories = ({color}) => {
   const style = {
-    backgroundColor: color||"black",
+    backgroundColor: color||"white",
     boxShadow: "0px 5px rgb(0,0,0,0.2)",
     borderRadius: "13px",
   }

@@ -1,37 +1,59 @@
-import React from 'react'
-import Cart from '../Components/Cart'
-import Previous from "../Components/Previous"
-import Share from "../Components/Share"
-import Like from '../Components/Like'
+import React from "react";
+import Cart from "../Components/Cart";
+import Previous from "../Components/Previous";
 
 const Restaurant_Pickup = () => {
   return (
     <div>
-        <Previous />
-        <h1>우리동네 치킨</h1>
-        <Cart />
-        <Share />
-        <Like />
-        <a href='restaurant'>배달</a>
-        <a href='restaurant_Pickup'>포장</a>
-        <p>포장시간: 포장 예상 시간</p>
-        <p>할인금액: 할인 금액</p>
-        <p>결제방법: 현장결제</p>
-        <p>가게위치: 가게위치</p>
-        <br />
-        <p>(임시)지도 사진 붙이는 곳</p>
-        <p>재주문 +1000</p>
-        <p>가게, 원산지 정보</p>
-        <br />
-        <h2>후라이드 치킨</h2>
-        <p>1975kcal</p>
-        <p>16.000원</p>
-        <br />
-        <h2>양념치킨</h2>
-        <p>2130kcal</p>
-        <p>17,000원</p>
+      <Previous />
+      <h2 className="m-0">우리동네 치킨</h2>
+      <Cart />
+      <svg
+        className="mx-2"
+        width="23"
+        height="25"
+        viewBox="0 0 23 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.75 17.6C17.8 17.6 16.95 17.975 16.3 18.5625L7.3875 13.375C7.45 13.0875 7.5 12.8 7.5 12.5C7.5 12.2 7.45 11.9125 7.3875 11.625L16.2 6.4875C16.875 7.1125 17.7625 7.5 18.75 7.5C20.825 7.5 22.5 5.825 22.5 3.75C22.5 1.675 20.825 0 18.75 0C16.675 0 15 1.675 15 3.75C15 4.05 15.05 4.3375 15.1125 4.625L6.3 9.7625C5.625 9.1375 4.7375 8.75 3.75 8.75C1.675 8.75 0 10.425 0 12.5C0 14.575 1.675 16.25 3.75 16.25C4.7375 16.25 5.625 15.8625 6.3 15.2375L15.2 20.4375C15.1375 20.7 15.1 20.975 15.1 21.25C15.1 23.2625 16.7375 24.9 18.75 24.9C20.7625 24.9 22.4 23.2625 22.4 21.25C22.4 19.2375 20.7625 17.6 18.75 17.6Z"
+          fill="black"
+        />
+      </svg>
+      <svg
+        className="mx-2"
+        width="25"
+        height="23"
+        viewBox="0 0 25 23"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.625 19.4375L12.5 19.5625L12.3625 19.4375C6.425 14.05 2.5 10.4875 2.5 6.875C2.5 4.375 4.375 2.5 6.875 2.5C8.8 2.5 10.675 3.75 11.3375 5.45H13.6625C14.325 3.75 16.2 2.5 18.125 2.5C20.625 2.5 22.5 4.375 22.5 6.875C22.5 10.4875 18.575 14.05 12.625 19.4375ZM18.125 0C15.95 0 13.8625 1.0125 12.5 2.6C11.1375 1.0125 9.05 0 6.875 0C3.025 0 0 3.0125 0 6.875C0 11.5875 4.25 15.45 10.6875 21.2875L12.5 22.9375L14.3125 21.2875C20.75 15.45 25 11.5875 25 6.875C25 3.0125 21.975 0 18.125 0Z"
+          fill="black"
+        />
+      </svg>
+      <a href="restaurant">배달</a>
+      <a href="restaurant_Pickup">포장</a>
+      <p>포장시간: 포장 예상 시간</p>
+      <p>할인금액: 할인 금액</p>
+      <p>결제방법: 현장결제</p>
+      <p>가게위치: 가게위치</p>
+      <br />
+      <p>(임시)지도 사진 붙이는 곳</p>
+      <p>재주문 +1000</p>
+      <p>가게, 원산지 정보</p>
+      <br />
+      <h2>후라이드 치킨</h2>
+      <p>1975kcal</p>
+      <p>16.000원</p>
+      <br />
+      <h2>양념치킨</h2>
+      <p>2130kcal</p>
+      <p>17,000원</p>
     </div>
-  )
-}
+  );
+};
 
-export default Restaurant_Pickup
+export default Restaurant_Pickup;
