@@ -1,4 +1,6 @@
 from django.db import models
+from django.conf import settings
+from django.db import models
 
 # Create your models here.
 
@@ -14,7 +16,9 @@ class Order(models.Model):
         DELIVERY = 'DELIVERY', '배달 중'
         DELIVERY_COMPLETE = 'DELIVERY_COMPLETE', '배달 완료'
 
-    owner = models.ForeignKey('accountapp.User', on_delete=models.CASCADE)
+
+
+    owner = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     restaurant = models.ForeignKey('restaurantapp.Restaurant', on_delete=models.CASCADE, related_name='order')
     order_time = models.DateTimeField(auto_now_add=True)
     delivery_status = models.CharField(max_length=20, choices=OrderStatus.choices,
@@ -31,3 +35,6 @@ class OrderMenu(models.Model):
     name = models.CharField(max_length=255)
     count = models.PositiveIntegerField()
     price = models.PositiveIntegerField()
+
+
+
