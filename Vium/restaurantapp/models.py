@@ -50,7 +50,6 @@ def menu_img_path(instance, filename):
 
 
 class Menu(models.Model):
-    menu_group = models.ForeignKey('MenuGroup', on_delete=models.CASCADE, related_name='menu')
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='menu_image', null=True, blank=True, max_length=400)
     caption = models.CharField(max_length=255)

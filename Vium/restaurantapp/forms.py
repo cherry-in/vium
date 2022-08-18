@@ -33,8 +33,7 @@ class RestaurantDetailForm(ModelForm):
         model = Restaurant
         fields = ('id', 'name', 'image', 'open_time', 'close_time', 'tel_number', 'address',
                   'min_order_price', 'payment_methods', 'business_name', 'company_registration_number',
-                  'origin_information', 'allergy_notification', 'delivery_charge', 'delivery_time',
-                  'menu_group', 'reorder_count')
+                  'origin_information', 'allergy_notification', 'delivery_charge', 'delivery_time', 'reorder_count')
 
 
 class RestaurantListForm(ModelForm):

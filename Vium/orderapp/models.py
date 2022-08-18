@@ -24,7 +24,6 @@ class Order(models.Model):
     total_price = models.PositiveIntegerField()
     month_total_price = models.PositiveIntegerField()
 
-
 class OrderMenu(models.Model):
     menu = models.ForeignKey('restaurantapp.Menu', on_delete=models.CASCADE)
     order = models.ForeignKey('Order', on_delete=models.CASCADE, related_name='order_menu')
