@@ -1,39 +1,25 @@
-from rest_framework import mixins
-from rest_framework.viewsets import GenericViewSet
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render
+from django.urls import reverse
+from django.views import View
+from django.views.generic import CreateView, ListView, DetailView
 
-from orderapp.models import Order
-from orderapp.forms import OrderForm, OrderListForm, OrderCreateForm
+from orderapp.forms import OrderCreateForm, MenuChoiceForm
+from orderapp.models import Order, OrderMenu
 
-# 수정 필요...
+# 음식 선택
+def menu_choice(request):
+    return render(request, 'orderapp/menu_choice.html', {'menu':'example'})
 
-class OrderViewSet(mixins.CreateModelMixin,
-                   mixins.ListModelMixin,
-                   mixins.RetrieveModelMixin,
-                   GenericViewSet):
-    queryset = Order.objects.all()
-    form_class = OrderForm
+# 주문 생성
+def order_create(request):
+    return render(request, 'orderapp/order_create.html')
 
-    def create(self, request, *args, **kwargs):
-        return super().create(request, *args, **kwargs)
+def cash(request):
+    return render(request, 'orderapp/cash.html')
 
-    def list(self, request, *args, **kwargs):
-        return super().list(request, *args, **kwargs)
+def credit_card(request):
+    return render(request, 'orderapp/credit_card.html')
 
-    def retrieve(self, request, *args, **kwargs):
-        return super().retrieve(request, *args, **kwargs)
-
-    def get_form_class(self):
-        if self.action == 'create':
-            return OrderCreateForm
-        if self.action == 'retrieve':
-            return OrderForm
-        if self.action == 'list':
-            return OrderListForm
-        return super().get_form_class()
-
-    def get_queryset(self):
-        qs = super().get_queryset()
-        return qs.filter(owner=self.request.user).select_related('restaurant').prefetch_related('order_menu')
-
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+def transfer(request):
+    return render(request, 'orderapp/transfer.html')
