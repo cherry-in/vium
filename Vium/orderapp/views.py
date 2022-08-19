@@ -23,3 +23,6 @@ def credit_card(request):
 
 def transfer(request):
     return render(request, 'orderapp/transfer.html')
+
+def base3(request):
+    return render(request, 'body/chicken_detailPage.html')
