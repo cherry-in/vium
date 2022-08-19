@@ -7,6 +7,7 @@ from django.views.generic import CreateView, ListView, DetailView
 from orderapp.forms import OrderCreateForm, MenuChoiceForm
 from orderapp.models import Order, OrderMenu
 
+
 # 음식 선택
 def menu_choice(request):
     return render(request, 'orderapp/menu_choice.html', {'menu':'example'})
@@ -23,3 +24,6 @@ def credit_card(request):
 
 def transfer(request):
     return render(request, 'orderapp/transfer.html')
+
+def detail_chicken(request):
+    return render(request, 'templates/body/detail_chicken.html')
