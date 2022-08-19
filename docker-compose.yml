@@ -13,7 +13,7 @@ services:
       - 80:80
 
   django_container_gunicorn:
-    image: vium:3
+    image: vium:6
     networks:
       - network
     volumes:
