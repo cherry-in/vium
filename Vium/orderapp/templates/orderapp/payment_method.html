@@ -2,7 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>결제수단</title>
+    <a href="{% url 'orderapp:cash' %}"
+           class="btn btn-primary rounded-pill col-3">
+            현금결제(현장)
+    </a>
+    <a href="{% url 'orderapp:credit_card' %}"
+           class="btn btn-primary rounded-pill col-3">
+            신용카드(현장)
+    </a>
+    <a href="{% url 'orderapp:transfer' %}"
+           class="btn btn-primary rounded-pill col-3">
+            계좌이체
+    </a>
 </head>
 <body>
 
