@@ -5,8 +5,8 @@ from restaurantapp.views import categories, restaurant_detail, restaurant_main, 
 app_name = 'restaurantapp'
 
 urlpatterns = [
-    path('categories/', categories, 'categories'),
-    path('restaurant_detail/', restaurant_detail, 'restaurant_detail'),
-    path('restaurant_main/', restaurant_main, 'restaurant_main'),
-    path('restaurant_list/', restaurant_list, 'restaurant_list'),
+    path('categories/', categories, name='categories'),
+    path('detail/', restaurant_detail, name='detail'),
+    path('main/', restaurant_main, name='main'),
+    path('list/', restaurant_list, name='list'),
 ]

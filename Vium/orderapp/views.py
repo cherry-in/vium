@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # 음식 선택
 def menu_choice(request):
-    context = {'menu':'food example', 'price':19000} #example
+    context = {'menu': 'menu', 'price':19000} #example
     return render(request, 'orderapp/menu_choice.html', context)
 
 # 주문 생성

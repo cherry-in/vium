@@ -1,4 +1,3 @@
-from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
 # Create your models here.
@@ -54,5 +53,6 @@ class Menu(models.Model):
     image = models.ImageField(upload_to='menu_image', null=True, blank=True, max_length=400)
     caption = models.CharField(max_length=255)
     price = models.PositiveIntegerField()
+    calorie = models.PositiveIntegerField()
 
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <h5>{{ name }}</h5>
+    <h6>배달시간</h6> <p>{{ delivery_time }}</p>
+    <h6>배달요금</h6> <p>{{ delivery_charge }}</p>
+    <h6>결제방법</h6> <p>{{ payment_method }}</p>
+    <h6>최소주문</h6> <p>{{ min_order_price }}</p>
+    <h6>재주문 +{{ reorder_count }}</h6> <a href="{% url 'restaurantapp:detail' %}"
+           class="btn btn-primary rounded-pill col-3">가게,원산지 정보</a>
+
+    <a href="{% url 'orderapp:menu_choice' %}"
+           class="btn btn-primary rounded-pill col-3">{{ menu }}</a>
+</head>
+<body>
+
+</body>
+</html>

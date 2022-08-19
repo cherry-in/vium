@@ -2,7 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <h4>오늘 소비한 칼로리</h4>
+    <h2>{{ consumed_calorie }}kcal</h2>
+
+    <a href="{% url 'orderapp:order_list' %}"
+           class="btn btn-primary rounded-pill col-3">
+        주문 기록
+    </a>
+
+    <a href="{% url 'restaurantapp:list' %}"
+           class="btn btn-primary rounded-pill col-3">
+        {{ Category }}
+    </a>
+
+    <p>
+        이번 달 총 결제 금액은 {{ month_total_price }}원 입니다.
+    </p>
 </head>
 <body>
 
