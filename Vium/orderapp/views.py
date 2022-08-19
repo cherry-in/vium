@@ -1,4 +1,3 @@
-from django.contrib.admin import action
 from django.shortcuts import render
 
 # 음식 선택
