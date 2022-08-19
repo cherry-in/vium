@@ -10,4 +10,5 @@ urlpatterns = [
     path('cash/', cash, name='cash'),
     path('credit_card/', credit_card, name='credit_card'),
     path('transfer/', transfer, name='transfer'),
+
 ]
