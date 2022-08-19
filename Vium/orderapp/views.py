@@ -1,39 +1,22 @@
-from rest_framework import mixins
-from rest_framework.viewsets import GenericViewSet
+from django.urls import reverse
+from django.views.generic import CreateView, ListView, DetailView
 
-from orderapp.models import Order
-from orderapp.forms import OrderForm, OrderListForm, OrderCreateForm
+from orderapp.forms import OrderCreateForm, OrderMenuForm
+from orderapp.models import Order, OrderMenu
 
-# 수정 필요...
 
-class OrderViewSet(mixins.CreateModelMixin,
-                   mixins.ListModelMixin,
-                   mixins.RetrieveModelMixin,
-                   GenericViewSet):
-    queryset = Order.objects.all()
-    form_class = OrderForm
+class OrderMenuView(DetailView):
+    model = Order
+    form_class = OrderMenuForm
+    template_name = 'orderapp/menu_choice.html'
+    context_object_name = 'target_order'
 
-    def create(self, request, *args, **kwargs):
-        return super().create(request, *args, **kwargs)
 
-    def list(self, request, *args, **kwargs):
-        return super().list(request, *args, **kwargs)
+class OrderCreateView(DetailView):
+    model = Order
+    form_class = OrderCreateForm
+    template_name = 'orderapp/payment_method.html'
+    context_object_name = 'target_order'
 
-    def retrieve(self, request, *args, **kwargs):
-        return super().retrieve(request, *args, **kwargs)
-
-    def get_form_class(self):
-        if self.action == 'create':
-            return OrderCreateForm
-        if self.action == 'retrieve':
-            return OrderForm
-        if self.action == 'list':
-            return OrderListForm
-        return super().get_form_class()
-
-    def get_queryset(self):
-        qs = super().get_queryset()
-        return qs.filter(owner=self.request.user).select_related('restaurant').prefetch_related('order_menu')
-
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    '''def get_success_url(self):
+        return reverse('articleapp:payment_', kwargs={'pk': self.object.pk})'''

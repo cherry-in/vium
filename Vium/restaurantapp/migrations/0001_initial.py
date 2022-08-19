@@ -27,11 +27,11 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
-                ('payment_methods', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=255), size=None)),
+                ('payment_methods', models.CharField(max_length=255)),
                 ('delivery_time', models.PositiveIntegerField()),
                 ('delivery_charge', models.PositiveIntegerField()),
                 ('min_order_price', models.PositiveIntegerField()),
-                ('categories', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(choices=[('1인분', 'One'), ('일식', 'Japanese'), ('중식', 'Chinese'), ('치킨', 'Chicken'), ('한식', 'Korean'), ('카페디저트', 'Cafe'), ('분식', 'Snack'), ('피자', 'Pizza'), ('양식', 'Western'), ('고기구이', 'Meat'), ('아시안', 'Asian'), ('패스트푸드', 'Fastfood'), ('야식', 'Midnight'), ('도시락', 'Lunchbox'), ('채식', 'Vegan')], max_length=20), size=None)),
+                ('categories', models.CharField(choices=[('1인분', 'One'), ('일식', 'Japanese'), ('중식', 'Chinese'), ('치킨', 'Chicken'), ('한식', 'Korean'), ('카페디저트', 'Cafe'), ('분식', 'Snack'), ('피자', 'Pizza'), ('양식', 'Western'), ('고기구이', 'Meat'), ('아시안', 'Asian'), ('패스트푸드', 'Fastfood'), ('야식', 'Midnight'), ('도시락', 'Lunchbox'), ('채식', 'Vegan')], max_length=20)),
                 ('reorder_count', models.PositiveIntegerField(default=0)),
                 ('image', models.ImageField(blank=True, null=True, upload_to='restaurant_image')),
                 ('business_name', models.CharField(max_length=255)),
