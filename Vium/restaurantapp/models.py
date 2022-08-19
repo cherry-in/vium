@@ -23,11 +23,11 @@ class Category(models.TextChoices):
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=255)
-    payment_methods = ArrayField(models.CharField(max_length=255))
+    payment_methods = models.CharField(max_length=255) #list
     delivery_time = models.PositiveIntegerField()
     delivery_charge = models.PositiveIntegerField()
     min_order_price = models.PositiveIntegerField()
-    categories = ArrayField(models.CharField(max_length=20, choices=Category.choices))
+    categories = models.CharField(max_length=20) #list
     reorder_count = models.PositiveIntegerField(default=0) #재주문횟수
 
     image = models.ImageField(upload_to='restaurant_image', null=True, blank=True)
@@ -50,7 +50,6 @@ def menu_img_path(instance, filename):
 
 
 class Menu(models.Model):
-    #menu_group = models.ForeignKey('restauMenuGroup', on_delete=models.CASCADE, related_name='menu')
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='menu_image', null=True, blank=True, max_length=400)
     caption = models.CharField(max_length=255)

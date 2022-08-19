@@ -8,3 +8,4 @@ class AccountCreateForm(UserCreationForm):
         model = User
         #fields = ['username', 'password1', 'password2', 'nickname', 'phonenum']
         fields = ['username', 'password1', 'password2']
+

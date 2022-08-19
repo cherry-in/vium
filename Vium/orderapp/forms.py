@@ -2,49 +2,26 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.forms import ModelForm
 
-from orderapp.models import Order, OrderMenu
+from orderapp.models import Order, OrderMenu, OrderOption, OrderOptionGroup
 
-
-class OrderMenuNameField(ModelForm):
-
-    def to_representation(self, value):
-        names = [f'{order_menu.name} x {order_menu.count}' for order_menu in value.all()]
-        return ', '.join(names)
-
-
+# 음식 선택
 class OrderMenuForm(ModelForm):
 
     class Meta:
         model = OrderMenu
-        fields = ('id', 'menu', 'name', 'price', 'count', 'order_option_group')
+        fields = ('id', 'menu', 'name', 'price', 'count')
+        # 메뉴 이름, 가게 이름, 가격, 음식 개수
+        # 결제 버튼 (장바구니 생략)
 
-
-class OrderForm(ModelForm):
-    order_menu = OrderMenuForm()
-
-    class Meta:
-        model = Order
-        fields = ('id', 'order_menu', 'address', 'delivery_requests', 'payment_method', 'order_time')
-
-
-class OrderListForm(ModelForm):
-    order_menu = OrderMenuNameField()
-    restaurant_name = models.CharField(source='restaurant.name')
-    restaurant_image = models.ImageField(source='restaurant.image')
-
-    class Meta:
-        model = Order
-        fields = ('id', 'order_menu', 'restaurant_name', 'restaurant_image', 'status', 'order_time')
-
-
+# 결제
 class OrderCreateForm(ModelForm):
-    order_menu = OrderMenuForm()
+    order_menu = OrderMenuForm
 
     class Meta:
         model = Order
-        fields = ('id', 'order_menu', 'restaurant', 'address', 'payment_method', 'total_price', 'month_total_price')
+        fields = ('id', 'payment_method', 'month_total_price')
 
-    def validate(self, attrs):
+    '''def validate(self, attrs):
         if attrs['total_price'] < attrs['restaurant'].min_order_price:
             raise ValidationError('total price < restaurant min price')
 
@@ -65,7 +42,15 @@ class OrderCreateForm(ModelForm):
     def create(self, validated_data):
         order_menus = validated_data.pop('order_menu')
         order = Order.objects.create(**validated_data)
-        OrderMenu.objects.create(order=order, **order_menus) #음...
+        for order_menu in order_menus:
+            order_option_groups = order_menu.pop('order_option_group')
+            order_menu_obj = OrderMenu.objects.create(order=order, **order_menu)
+            for order_option_group in order_option_groups:
+                order_options = order_option_group.pop('order_option')
+                order_option_group_obj = OrderOptionGroup.objects.create(order_menu=order_menu_obj,
+                                                                         **order_option_group)
+                for order_option in order_options:
+                    OrderOption.objects.create(order_option_group=order_option_group_obj, **order_option)
         return order
 
     def valid_order_menu(self, order_menu):
@@ -78,4 +63,4 @@ class OrderCreateForm(ModelForm):
         menu_price = order_menu['price']
 
         menu_price = menu_price * order_menu['count']
-        self.total_price += menu_price
+        self.total_price += 'menu_price' '''

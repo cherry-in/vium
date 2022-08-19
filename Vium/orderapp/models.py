@@ -16,9 +16,7 @@ class Order(models.Model):
         DELIVERY = 'DELIVERY', '배달 중'
         DELIVERY_COMPLETE = 'DELIVERY_COMPLETE', '배달 완료'
 
-
-
-    owner = models.ForeignKey( settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     restaurant = models.ForeignKey('restaurantapp.Restaurant', on_delete=models.CASCADE, related_name='order')
     order_time = models.DateTimeField(auto_now_add=True)
     delivery_status = models.CharField(max_length=20, choices=OrderStatus.choices,
@@ -37,4 +35,14 @@ class OrderMenu(models.Model):
     price = models.PositiveIntegerField()
 
 
+class OrderOptionGroup(models.Model):
+    order_menu = models.ForeignKey('OrderMenu', on_delete=models.CASCADE, related_name='order_option_group')
+    name = models.CharField(max_length=255)
+    mandatory = models.BooleanField(default=False)
+
+
+class OrderOption(models.Model):
+    order_option_group = models.ForeignKey('OrderOptionGroup', on_delete=models.CASCADE, related_name='order_option')
+    name = models.CharField(max_length=255)
+    price = models.PositiveIntegerField()
 
