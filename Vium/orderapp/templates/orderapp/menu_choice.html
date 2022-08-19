@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <p>
-        {{ menu }}
-    </p>
+    <p>{{ menu }}</p>
+    <p>{{ price }}</p>
     <a href="{% url 'orderapp:order_create' %}"
            class="btn btn-primary rounded-pill col-3">
             결제

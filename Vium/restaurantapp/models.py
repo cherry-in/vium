@@ -29,7 +29,6 @@ class Restaurant(models.Model):
     min_order_price = models.PositiveIntegerField()
     categories = models.CharField(max_length=20) #list
     reorder_count = models.PositiveIntegerField(default=0) #재주문횟수
-
     image = models.ImageField(upload_to='restaurant_image', null=True, blank=True)
     business_name = models.CharField(max_length=255)
     company_registration_number = models.CharField(max_length=255)
@@ -39,6 +38,7 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=255)
     origin_information = models.TextField()
     allergy_notification = models.TextField()
+    consumed_calorie = models.IntegerField()
 
     def __str__(self):
         return f'({self.id}){self.name}'
