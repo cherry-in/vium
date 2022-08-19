@@ -5,7 +5,7 @@ from django.forms import ModelForm
 from orderapp.models import Order, OrderMenu, OrderOption, OrderOptionGroup
 
 # 음식 선택
-class OrderMenuForm(ModelForm):
+class MenuChoiceForm(ModelForm):
 
     class Meta:
         model = OrderMenu
@@ -13,9 +13,19 @@ class OrderMenuForm(ModelForm):
         # 메뉴 이름, 가게 이름, 가격, 음식 개수
         # 결제 버튼 (장바구니 생략)
 
-# 결제
-class OrderCreateForm(ModelForm):
+''' 주문 기록
+class OrderListForm(ModelForm):
     order_menu = OrderMenuForm
+    restaurant_name = models.CharField(source='restaurant.name')
+    restaurant_image = models.ImageField(source='restaurant.image')
+
+    class Meta:
+        model = Order
+        fields = ('id', 'order_menu', 'restaurant_name', 'restaurant_image')'''
+
+# 주문 생성
+class OrderCreateForm(ModelForm):
+    order_menu = MenuChoiceForm
 
     class Meta:
         model = Order
