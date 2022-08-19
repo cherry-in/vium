@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <p>
-        {{ menu }}
-    </p>
-    <a href="{% url 'orderapp:order_create' %}"
-           class="btn btn-primary rounded-pill col-3">
-            결제
-    </a>
-</head>
-<body>
+{% extends 'orderapp/base.html' %} {% block content %}
 
-</body>
-</html>
+<div class="post">
+  <div class="date">{{ menu }}</div>
+</div>
+{% endblock %}
