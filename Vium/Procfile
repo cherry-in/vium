@@ -1,0 +1,1 @@
+web: gunicorn Vium.wsgi --log-file -
