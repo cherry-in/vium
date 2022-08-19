@@ -26,4 +26,4 @@ def transfer(request):
     return render(request, 'orderapp/transfer.html')
 
 def detail_chicken(request):
-    return render(request, 'templates/body/detail_chicken.html')
+    return render(request, 'body/detail_chicken.html')
